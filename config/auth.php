@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'users',
+        'passwords' => 'mahasiswa',
     ],
 
     /*
@@ -38,12 +38,17 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'mahasiswa',
+        ],
+
+        'mahasiswa' => [
+            'driver' => 'session',
+            'provider' => 'mahasiswa',
         ],
 
         'api' => [
             'driver' => 'token',
-            'provider' => 'users',
+            'provider' => 'mahasiswa',
             'hash' => false,
         ],
     ],
@@ -69,6 +74,12 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+
+        'mahasiswa' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\M_auth_mahasiswa::class,
+            'table' => 'mahasiswa',
         ],
 
         // 'users' => [
@@ -98,6 +109,12 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
+        ],
+
+        'mahasiswa' => [
+            'provider' => 'mahasiswa',
+            'table' => 'password_resets',
+            'expire' => 60,
         ],
     ],
 

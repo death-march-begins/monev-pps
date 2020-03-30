@@ -16,3 +16,4 @@ Route::prefix('mahasiswa')->group(function() {
     Route::get('/form', 'MahasiswaController@form')->name('form');
     Route::get('/list', 'MahasiswaController@list')->name('list');
 });
+
