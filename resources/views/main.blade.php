@@ -30,14 +30,15 @@ The above copyright notice and this permission notice shall be included in all c
     <link rel="stylesheet" type="text/css" href="{{  asset('assets/main_template/assets/css/custom.css') }}" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <!-- <link href="{{  asset('assets/main_template/assets/demo/demo.css') }}" rel="stylesheet" /> -->
+    <script src="{{  asset('assets/main_template/assets/js/core/jquery.min.js') }}"></script>
 </head>
 
 <body class="">
-    @component('layout.loader') @endcomponent
+    @component('layouts.loader') @endcomponent
     <div class="wrapper ">
-        @component('layout.sidebar') @endcomponent
+        @component('layouts.sidebar') @endcomponent
         <div class="main-panel">
-            @component('layout.header') @endcomponent
+            @component('layouts.header') @endcomponent
             <div class="content">
                 <div class="container-fluid">
                     <div id="container-content">
@@ -45,13 +46,11 @@ The above copyright notice and this permission notice shall be included in all c
                     </div>
                 </div>
             </div>
-            @component('layout.footer') @endcomponent
+            @component('layouts.footer') @endcomponent
         </div>
     </div>
-    @component('layout.setting') @endcomponent
 
     <!--   Core JS Files   -->
-    <script src="{{  asset('assets/main_template/assets/js/core/jquery.min.js') }}"></script>
     <script src="{{  asset('assets/main_template/assets/js/core/popper.min.js') }}"></script>
     <script src="{{  asset('assets/main_template/assets/js/core/bootstrap-material-design.min.js') }}"></script>
     <script src="{{  asset('assets/main_template/assets/js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>

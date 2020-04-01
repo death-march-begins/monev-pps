@@ -1,0 +1,24 @@
+.outter {
+    position: relative;
+    box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.5);
+}
+
+.header {
+    padding: 15px;
+    text-align: center;
+    min-height: 10vh;
+}
+
+.login-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-letter {
+    color: #ffffff;
+    background: rgba(1, 1, 1, 0.5);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 10px;
+}
