@@ -12,24 +12,25 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end">
             <form class="navbar-form">
-                <div class="input-group no-border">
-                    <input type="text" value="" class="form-control" placeholder="Search...">
+                <div class="no-border">
+                    <!-- <div class="input-group no-border"> -->
+                    <!-- <input type="text" value="" class="form-control" placeholder="Search...">
                     <button type="submit" class="btn btn-white btn-round btn-just-icon">
                         <i class="material-icons">search</i>
                         <div class="ripple-container"></div>
-                    </button>
+                    </button> -->
                 </div>
             </form>
             <ul class="navbar-nav">
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="javascript:;">
                         <i class="material-icons">dashboard</i>
                         <p class="d-lg-none d-md-block">
                             Stats
                         </p>
                     </a>
-                </li>
-                <li class="nav-item dropdown">
+                </li> -->
+                <!-- <li class="nav-item dropdown">
                     <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="material-icons">notifications</i>
                         <span class="notification">5</span>
@@ -44,12 +45,13 @@
                         <a class="dropdown-item" href="#">Another Notification</a>
                         <a class="dropdown-item" href="#">Another One</a>
                     </div>
-                </li>
+                </li> -->
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="material-icons">person</i>
-                        <p class="d-lg-none d-md-block">
-                            Account
+                        <!-- <p class="d-lg-none d-md-block"> -->
+                        <p>
+                            {{{ Auth::user()->nama }}}
                         </p>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">

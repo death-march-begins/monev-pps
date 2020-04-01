@@ -19,30 +19,36 @@ class MahasiswaController extends Controller
     }
 
     public function index(Request $request)
-    {   
+    {
         $content = view('mahasiswa::dashboard')->render();
-        if ($request->ajax()) {
-            return response()->json(['html'=>$content]);
-        }
-        return view('main')->with('content',$content);
+        // if ($request->ajax()) {
+        //     return response()->json(['html'=>$content]);
+        // }
+        return view('main')->with('content', $content);
+    }
+
+    public function dashboard(Request $request)
+    {
+        $content = view('mahasiswa::dashboard')->render();
+        return response()->json(['html' => $content]);
     }
 
     public function form(Request $request)
     {
         $content = view('mahasiswa::form')->render();
         if ($request->ajax()) {
-            return response()->json(['html'=>$content]);
+            return response()->json(['html' => $content]);
         }
-        return view('main')->with('content',$content);
+        return view('main')->with('content', $content);
     }
 
     public function list(Request $request)
     {
         $content = view('mahasiswa::list')->render();
         if ($request->ajax()) {
-            return response()->json(['html'=>$content]);
+            return response()->json(['html' => $content]);
         }
-        return view('main')->with('content',$content);
+        return view('main')->with('content', $content);
     }
 
     /**

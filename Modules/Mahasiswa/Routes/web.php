@@ -11,9 +11,9 @@
 |
 */
 
-Route::prefix('mahasiswa')->group(function() {
-    Route::get('/', 'MahasiswaController@index')->name('dashboard');
+Route::prefix('mahasiswa')->group(function () {
+    Route::get('/', 'MahasiswaController@index');
+    Route::get('/dashboard', 'MahasiswaController@dashboard')->name('dashboard');
     Route::get('/form', 'MahasiswaController@form')->name('form');
     Route::get('/list', 'MahasiswaController@list')->name('list');
 });
-

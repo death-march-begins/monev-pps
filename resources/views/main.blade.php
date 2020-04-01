@@ -30,6 +30,7 @@ The above copyright notice and this permission notice shall be included in all c
     <link rel="stylesheet" type="text/css" href="{{  asset('assets/main_template/assets/css/custom.css') }}" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <!-- <link href="{{  asset('assets/main_template/assets/demo/demo.css') }}" rel="stylesheet" /> -->
+    <script src="{{  asset('assets/main_template/assets/js/core/jquery.min.js') }}"></script>
 </head>
 
 <body class="">
@@ -48,10 +49,8 @@ The above copyright notice and this permission notice shall be included in all c
             @component('layouts.footer') @endcomponent
         </div>
     </div>
-    @component('layouts.setting') @endcomponent
 
     <!--   Core JS Files   -->
-    <script src="{{  asset('assets/main_template/assets/js/core/jquery.min.js') }}"></script>
     <script src="{{  asset('assets/main_template/assets/js/core/popper.min.js') }}"></script>
     <script src="{{  asset('assets/main_template/assets/js/core/bootstrap-material-design.min.js') }}"></script>
     <script src="{{  asset('assets/main_template/assets/js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>

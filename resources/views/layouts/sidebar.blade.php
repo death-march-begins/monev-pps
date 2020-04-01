@@ -1,17 +1,18 @@
-
-<div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+<div class="sidebar" data-color="darkblue" data-background-color="white">
     <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
         Tip 2: you can also add an image using data-image tag
     -->
-    <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
-            Creative Tim
+    <div class="logo sidebar-header">
+        <img class="logo-sidebar" src="{{asset('assets/auth/images/unsyiah.png')}}" width="30" height="30" alt="No-image">
+        <a href="{{ url('/mahasiswa') }}" class="simple-text logo-normal title-sidebar">
+            {{ config('app.name', 'Monev-in') }}
         </a></div>
     <div class="sidebar-wrapper">
         <ul id="grupmenu" class="nav">
             <li class="nav-item active ">
-                <a class="nav-link menu-app" href="javascript:void(0)" data-val="/mahasiswa" data-nama="Dashboard">
+                <a class="nav-link menu-app" href="javascript:void(0)" data-val="/mahasiswa/dashboard" data-nama="Dashboard">
                     <i class="material-icons">dashboard</i>
                     <p>Dashboard</p>
                 </a>
@@ -67,4 +68,3 @@
         </ul>
     </div>
 </div>
-
