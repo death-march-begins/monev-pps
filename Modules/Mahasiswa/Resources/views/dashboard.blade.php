@@ -38,11 +38,49 @@
 </div>
 
 <div class="card card-nav-tabs">
-  <div class="card-body">
-    <h4 class="card-title">RINCIAN RENCANA PENELITIAN YANG SEDANG BERJALAN</h4><hr>
-    <p class="card-text">Anda Belum Memiliki Rencana Studi dan Rencana Penelitian</p>
-    <a href="#0" class="btn btn-info">Ajukan Rencana</a>
-  </div>
+    <div class="card-body">
+        <h4 class="card-title">RINCIAN RENCANA PENELITIAN YANG SEDANG BERJALAN</h4>
+        <hr>
+
+        <p class="card-text state-before">Anda Belum Memiliki Rencana Studi dan Rencana Penelitian</p>
+        <div id="rencana-penelitian" class="invisible">
+            <form method="" action="">
+                <div class="form-group">
+                    <label for="judul">Judul Penelitian</label>
+                    <input type="text" id="judul" class="form-control input-custom" placeholder="Isi Judul Penelitian">
+                </div>
+
+                <div class="form-group">
+                    <label for="minat">Bidang Minat</label>
+                    <input type="text" id="minat" class="form-control input-custom" placeholder="Pilih Bidang Minat">
+                </div>
+
+                <div class="form-group">
+                    <label for="promotor">Promotor</label>
+                    <input type="text" id="promotor" class="form-control input-custom" placeholder="Pilih Promotor">
+                </div>
+
+                <div class="form-group">
+                    <label for="copromotor1">Ko-Promotor I</label>
+                    <input type="text" id="copromotor1" class="form-control input-custom" placeholder="Masukkan nama Ko-Promotor I">
+                </div>
+
+                <div class="form-group">
+                    <label for="copromotor2">Ko-Promotor II</label>
+                    <input type="text" id="copromotor2" class="form-control input-custom" placeholder="Masukkan nama Ko-Promotor II">
+                </div>
+
+                <!-- <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Example textarea</label>
+                        <textarea class="form-control input-custom" rows="2"></textarea>
+                    </div> -->
+                <a href="#0" class="btn btn-info send-rencana" type="submit">Ajukan Rencana</a>
+                <a href="#0" class="btn btn-danger close-form" style="float:right;">Batal</a>
+            </form>
+        </div>
+        <a href="#0" class="btn btn-info show-form state-before">Ajukan Rencana</a>
+
+    </div>
 </div>
 
 <script src="{{  Module::asset('Mahasiswa:js/mahasiswa.js') }}" type="text/javascript"></script>

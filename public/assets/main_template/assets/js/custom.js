@@ -24,8 +24,23 @@ function update(nav, name) {
 
             $('.loader').hide();
         },
+        statusCode: {
+            401: function() {
+                Swal.fire({
+                    title: 'Your session is expired',
+                    text: "Please login to continue !",
+                    icon: 'warning',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'OK'
+                }).then((result) => {
+                    if (result.value) {
+                        window.location.href = '/login'; //or what ever is your login URI 
+                    }
+                })
+            }
+        },
         error: function(result) {
-            alert("error", result);
+            console.log("something wrong !", result);
             $('.loader').hide();
 
         }

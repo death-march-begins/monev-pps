@@ -105,6 +105,20 @@
     margin-top: 1rem;
 }
 
+.input-custom {
+    margin-bottom: 2rem;
+}
+
+.invisible {
+    display: none;
+}
+
+#rencana-penelitian {
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
 @media all and (min-width: 768px) {
     .stepper-container {
         margin: 20px 20px;
