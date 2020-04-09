@@ -100,27 +100,37 @@
                 @csrf
                 <div class="form-group">
                     <label for="judul">Judul Penelitian</label>
-                    <input type="text" id="judul" class="form-control input-custom" name="judul" placeholder="Isi Judul Penelitian" value=" {{ $data->judul }}">
+                    <input type="text" id="judul" class="form-control input-custom" name="judul" placeholder="Isi Judul Penelitian" value=" {{ $data->judul }}" required>
                 </div>
 
                 <div class="form-group">
                     <label for="minat">Bidang Minat</label>
-                    <input type="text" id="minat" class="form-control input-custom" name="minat" placeholder="Pilih Bidang Minat" value=" {{ $data->bidang_minat }}">
+                    <input type="text" id="minat" class="form-control input-custom" name="minat" placeholder="Pilih Bidang Minat" value=" {{ $data->bidang_minat }}" required>
                 </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="promotor">Promotor</label>
                     <input type="text" id="promotor" class="form-control input-custom" name="promotor" placeholder="Pilih Promotor" value=" {{ $data->promotor }}">
+                </div> -->
+
+                <div class="form-group" style="margin-top:-.65rem;">
+                    <label for="promotor">Promotor</label>
+                    <select class="form-control selectpicker input-custom" id="promotor" data-style="btn btn-link" name="promotor" value=" {{ $data->promotor }}" required>
+                        <option value="">Pilih promotor yang tersedia</option>
+                        @foreach($av_promotor as $av)
+                            <option value="{{$av->nama}}" {{ $data->promotor === $av->nama ? 'selected' : '' }}> {{$av->nama}}</option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <div class="form-group">
                     <label for="copromotor1">Ko-Promotor I</label>
-                    <input type="text" id="copromotor1" class="form-control input-custom" name="copromotor1" placeholder="Masukkan nama Ko-Promotor I" value=" {{ $data->ko_promotor_1 }}">
+                    <input type="text" id="copromotor1" class="form-control input-custom" name="copromotor1" placeholder="Masukkan nama Ko-Promotor I" value=" {{ $data->ko_promotor_1 }}" required>
                 </div>
 
                 <div class="form-group">
                     <label for="copromotor2">Ko-Promotor II</label>
-                    <input type="text" id="copromotor2" class="form-control input-custom" name="copromotor2" placeholder="Masukkan nama Ko-Promotor II" value=" {{ $data->ko_promotor_2 }}">
+                    <input type="text" id="copromotor2" class="form-control input-custom" name="copromotor2" placeholder="Masukkan nama Ko-Promotor II" value=" {{ $data->ko_promotor_2 }}" required>
                 </div>
 
                 <!-- <div class="form-group">
@@ -139,31 +149,36 @@
         <div id="rencana-penelitian" class="invisible">
             <form id="daftar-penelitian" method="POST" action="{{ route('daftarPenelitian') }}">
                 @csrf
-                <input type="text" id="id_mahasiswa" class="form-control input-custom invisible" name="id_mahasiswa" value=" {{ Auth::user()->id }}">
+                <input type="text" id="id_mahasiswa" class="form-control input-custom invisible" name="id_mahasiswa" value=" {{ Auth::user()->id }}" required>
 
                 <div class="form-group">
                     <label for="judul">Judul Penelitian</label>
-                    <input type="text" id="judul" class="form-control input-custom" name="judul" placeholder="Isi Judul Penelitian">
+                    <input type="text" id="judul" class="form-control input-custom" name="judul" placeholder="Isi Judul Penelitian" required>
                 </div>
 
                 <div class="form-group">
                     <label for="minat">Bidang Minat</label>
-                    <input type="text" id="minat" class="form-control input-custom" name="minat" placeholder="Pilih Bidang Minat">
+                    <input type="text" id="minat" class="form-control input-custom" name="minat" placeholder="Pilih Bidang Minat" required>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" style="margin-top:-.65rem;">
                     <label for="promotor">Promotor</label>
-                    <input type="text" id="promotor" class="form-control input-custom" name="promotor" placeholder="Pilih Promotor">
+                    <select class="form-control selectpicker" id="promotor" data-style="btn btn-link" name="promotor" value=" {{ $data->promotor }}" required>
+                        <option value="" selected>Pilih promotor yang tersedia</option>
+                        @foreach($av_promotor as $av)
+                            <option value="{{$av->nama}}"> {{$av->nama}}</option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <div class="form-group">
                     <label for="copromotor1">Ko-Promotor I</label>
-                    <input type="text" id="copromotor1" class="form-control input-custom" name="copromotor1" placeholder="Masukkan nama Ko-Promotor I">
+                    <input type="text" id="copromotor1" class="form-control input-custom" name="copromotor1" placeholder="Masukkan nama Ko-Promotor I" required>
                 </div>
 
                 <div class="form-group">
                     <label for="copromotor2">Ko-Promotor II</label>
-                    <input type="text" id="copromotor2" class="form-control input-custom" name="copromotor2" placeholder="Masukkan nama Ko-Promotor II">
+                    <input type="text" id="copromotor2" class="form-control input-custom" name="copromotor2" placeholder="Masukkan nama Ko-Promotor II" required>
                 </div>
 
                 <!-- <div class="form-group">

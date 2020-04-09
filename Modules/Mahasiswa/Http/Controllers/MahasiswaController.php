@@ -7,6 +7,8 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Mahasiswa\Entities\M_mahasiswa;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+use Modules\Promotor\Entities\M_promotor;
 
 class MahasiswaController extends Controller
 {
@@ -24,8 +26,10 @@ class MahasiswaController extends Controller
     {
         $idMahasiswa = Auth::user()->id;
         $daftarRencana = M_mahasiswa::where('id_mahasiswa', '=', $idMahasiswa)->get();
+        $promotor = M_promotor::all();
         $data = [
-            'penelitian' => $daftarRencana
+            'penelitian' => $daftarRencana,
+            'av_promotor' => $promotor
         ];
         $content = view('mahasiswa::dashboard', $data)->render();
         // if ($request->ajax()) {
@@ -38,8 +42,10 @@ class MahasiswaController extends Controller
     {
         $idMahasiswa = Auth::user()->id;
         $daftarRencana = M_mahasiswa::where('id_mahasiswa', '=', $idMahasiswa)->get();
+        $promotor = M_promotor::all();
         $data = [
-            'penelitian' => $daftarRencana
+            'penelitian' => $daftarRencana,
+            'av_promotor' => $promotor
         ];
         $content = view('mahasiswa::dashboard', $data)->render();
         return response()->json(['html' => $content]);
@@ -107,7 +113,7 @@ class MahasiswaController extends Controller
             'promotor' => $request->promotor,
             'ko_promotor_1' => $request->copromotor1,
             'ko_promotor_2' => $request->copromotor2,
-            'updated_at' => date('Y-m-d H:i:s')
+            'updated_at' => Carbon::now()
         ];
         $change = M_mahasiswa::where('id_mahasiswa', '=', $idMahasiswa)->update($perubahan);
         if($change === 1){
@@ -117,4 +123,5 @@ class MahasiswaController extends Controller
         }
         echo json_encode($msg);
     }
+
 }

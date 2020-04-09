@@ -169,6 +169,7 @@ $(document).ready(function() {
             }
         });
     });
+
     // $(".next").click(function() {
 
     //     current_fs = $(this).parent();

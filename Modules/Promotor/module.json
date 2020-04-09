@@ -1,0 +1,13 @@
+{
+    "name": "Promotor",
+    "alias": "promotor",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\Promotor\\Providers\\PromotorServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
