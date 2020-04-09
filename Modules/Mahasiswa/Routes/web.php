@@ -16,4 +16,7 @@ Route::prefix('mahasiswa')->group(function () {
     Route::get('/dashboard', 'MahasiswaController@dashboard')->name('dashboard');
     Route::get('/form', 'MahasiswaController@form')->name('form');
     Route::get('/list', 'MahasiswaController@list')->name('list');
+    Route::post('/daftarPenelitian','MahasiswaController@daftarPenelitian')->name('daftarPenelitian');
+    Route::post('/deletePenelitian','MahasiswaController@deletePenelitian')->name('deletePenelitian');
+    Route::post('/editPenelitian','MahasiswaController@editPenelitian')->name('editPenelitian');
 });

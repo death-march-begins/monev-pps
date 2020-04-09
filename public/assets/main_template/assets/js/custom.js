@@ -24,8 +24,23 @@ function update(nav, name) {
 
             $('.loader').hide();
         },
+        statusCode: {
+            401: function() {
+                Swal.fire({
+                    title: 'Your session is expired',
+                    text: "Please login to continue !",
+                    icon: 'warning',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'OK'
+                }).then((result) => {
+                    if (result.value) {
+                        window.location.href = '/login'; //or what ever is your login URI 
+                    }
+                })
+            }
+        },
         error: function(result) {
-            alert("error", result);
+            console.log("something wrong !", result);
             $('.loader').hide();
 
         }
@@ -42,6 +57,9 @@ function init() {
         update(menu, sessionStorage.getItem('name'));
         setBtnMenu($('*[data-val="' + menu + '"]'));
         setStateNav(sessionStorage.getItem('name'));
+    } else {
+        update('/mahasiswa', 'Dashboard');
+        setStateNav('Dashboard');
     }
     // for first time, page just open with empty content only left nav and top nav
     // get home page for 1st dashboard menu, and append to content
