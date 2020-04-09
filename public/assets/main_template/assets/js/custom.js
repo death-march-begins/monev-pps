@@ -57,6 +57,9 @@ function init() {
         update(menu, sessionStorage.getItem('name'));
         setBtnMenu($('*[data-val="' + menu + '"]'));
         setStateNav(sessionStorage.getItem('name'));
+    } else {
+        update('/mahasiswa', 'Dashboard');
+        setStateNav('Dashboard');
     }
     // for first time, page just open with empty content only left nav and top nav
     // get home page for 1st dashboard menu, and append to content

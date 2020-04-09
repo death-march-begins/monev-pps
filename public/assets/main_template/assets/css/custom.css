@@ -119,6 +119,12 @@
     padding-right: 1rem;
 }
 
+#edit-rencana-penelitian {
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
 @media all and (min-width: 768px) {
     .stepper-container {
         margin: 20px 20px;

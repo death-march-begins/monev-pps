@@ -267,6 +267,7 @@ The above copyright notice and this permission notice shall be included in all c
         });
     </script>
     <script src="{{  asset('assets/main_template/assets/js/custom.js') }}" type="text/javascript"></script>
+    <script type="text/javascript" src="{{  asset('assets/sweetalert/sweetalert-master/dist/sweetalert.min.js') }}"></script>
     <!-- <script type="text/javascript" src="{{  asset('assets/main_template/assets/js/loading-bar.js') }}"></script> -->
 </body>
 
