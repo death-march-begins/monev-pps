@@ -6,13 +6,12 @@ const Promotor = use('App/Models/Promotor')
 class RegisterController {
 
   async registerMhs({ request, response }) {
-    const { first_name, last_name, nim, email, password, role } = request.only([
+    const { first_name, last_name, nim, email, password } = request.only([
       'first_name',
       'last_name',
       'nim',
       'email',
-      'password',
-      'role'
+      'password'
     ])
 
     const mahasiswa = await Mahasiswa.create({
@@ -21,20 +20,19 @@ class RegisterController {
       'nim': nim,
       'email': email,
       'password': password,
-      'role': role
+      'role': 1
     })
 
     return response.send({ message: 'Mahasiswa has been created' })
   }
 
   async registerPromotor({ request, response }) {
-    const { first_name, last_name, nik, email, password, role } = request.only([
+    const { first_name, last_name, nik, email, password } = request.only([
       'first_name',
       'last_name',
       'nik',
       'email',
-      'password',
-      'role'
+      'password'
     ])
 
     const promotor = await Promotor.create({
@@ -43,7 +41,7 @@ class RegisterController {
       nik,
       email,
       password,
-      role
+      'role': 2
     })
 
     return response.send({ message: 'Promotor has been created' })

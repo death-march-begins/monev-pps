@@ -1,5 +1,19 @@
-# Adonis fullstack application
+# Monev-In PPS
 
+## Registering User
+
+Untuk register gunakan aplikasi third-party seperti Postman, Insomnia, dll dan lakukan post request ke link yang diberikan
+
+- Mahasiswa
+    - post : http://127.0.0.1:3333/users/register/mhs
+        - value: [first_name, last_name, nim, email, password]
+        
+- Promotor
+    - post : http://127.0.0.1:3333/users/register/promotor
+        - value: [first_name, last_name, nik, email, password]
+
+
+## Adonis Fullstack Applicatinon 
 This is the fullstack boilerplate for AdonisJs, it comes pre-configured with.
 
 1. Bodyparser
