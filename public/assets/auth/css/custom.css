@@ -22,3 +22,352 @@
     padding-bottom: 15px;
     margin-top: 10px;
 }
+
+/* loader css */
+
+.loader {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, .4);
+  z-index: 999999;
+}
+
+.loader .loader-inner {
+  position: absolute;
+  border: 2px solid #f50136;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  left: calc(50% - 20px);
+  top: calc(50% - 20px);
+  border-right: 0;
+  border-top-color: transparent;
+  -webkit-animation: loader-inner 1s cubic-bezier(0.42, 0.61, 0.58, 0.41) infinite;
+  animation: loader-inner 1s cubic-bezier(0.42, 0.61, 0.58, 0.41) infinite;
+}
+
+@-webkit-keyframes loader-outter {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-outter {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes loader-inner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes loader-inner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+
+
+/* loader css end*/
+
+
+/* Mahasiswa CSS */
+
+.card {
+  z-index: 0;
+  border: none;
+  border-radius: 0.5rem;
+  position: relative
+}
+
+.fit-image {
+  width: 100%;
+  object-fit: cover
+}
+
+.bullet {
+  margin-left: 3.5vh;
+}
+
+.sidebar-header {
+  background-color: #263544;
+}
+
+.sidebar .logo .simple-text {
+  display: inline;
+}
+
+.logo-sidebar {
+  margin: -.5rem .5rem 0rem 3.5rem;
+}
+
+.title-sidebar {
+  margin-top: 1rem;
+}
+
+.input-custom {
+  margin-bottom: 2rem;
+}
+
+.invisible {
+  display: none;
+}
+
+#rencana-penelitian {
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+#edit-rencana-penelitian {
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media all and (min-width: 768px) {
+  .stepper-container {
+    margin: 20px 20px;
+  }
+  #progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    color: lightgrey;
+    padding: 0px;
+    margin-top: 20px;
+  }
+  #progressbar .active {
+    color: #000000
+  }
+  #progressbar li {
+    list-style-type: none;
+    font-size: 12px;
+    width: 14%;
+    float: left;
+    position: relative
+  }
+  #progressbar #renja:before {
+    font-family: FontAwesome;
+    content: "\f09d";
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  #progressbar #propen:before {
+    font-family: FontAwesome;
+    content: "\f023";
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  #progressbar #laporan1:before {
+    font-family: FontAwesome;
+    content: "\f023";
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  #progressbar #laporan2:before {
+    font-family: FontAwesome;
+    content: "\f023";
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  #progressbar #laporan3:before {
+    font-family: FontAwesome;
+    content: "\f023";
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  #progressbar #laporan4:before {
+    font-family: FontAwesome;
+    content: "\f023";
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  #progressbar #laporan5:before {
+    font-family: FontAwesome;
+    content: "\f023";
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  #progressbar #confirm:before {
+    font-family: FontAwesome;
+    content: "\f00c"
+  }
+  #progressbar li:before {
+    width: 50px;
+    height: 50px;
+    line-height: 30px;
+    display: block;
+    font-size: 18px;
+    color: #ffffff;
+    background: lightgray;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    padding: 2px
+  }
+  #progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: lightgray;
+    position: absolute;
+    left: 0;
+    top: 25px;
+    z-index: -1
+  }
+  #progressbar li.active:before,
+  #progressbar li.active:after {
+    background: skyblue
+  }
+}
+
+@media all and (max-width: 767px) {
+  .stepper-container-sm {
+    margin: 20px 20px 20px 45px;
+  }
+  .progressbar-sm {
+    overflow: hidden;
+    color: lightgrey;
+    padding: 0px;
+    margin-top: -30px;
+    margin-bottom: 30px;
+  }
+  .progressbar-sm .active {
+    color: #000000
+  }
+  .progressbar-sm li {
+    list-style-type: none;
+    font-size: 12px;
+    width: 14%;
+    margin: 0 0;
+    padding-top: 50px;
+    position: relative;
+  }
+  .progressbar-sm #renja:before {
+    font-family: FontAwesome;
+    content: "\f09d";
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .progressbar-sm #propen:before {
+    font-family: FontAwesome;
+    content: "\f023";
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .progressbar-sm #laporan1:before {
+    font-family: FontAwesome;
+    content: "\f023";
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .progressbar-sm #laporan2:before {
+    font-family: FontAwesome;
+    content: "\f023";
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .progressbar-sm #laporan3:before {
+    font-family: FontAwesome;
+    content: "\f023";
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .progressbar-sm #laporan4:before {
+    font-family: FontAwesome;
+    content: "\f023";
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .progressbar-sm #laporan5:before {
+    font-family: FontAwesome;
+    content: "\f023";
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .progressbar-sm li:before {
+    width: 50px;
+    height: 50px;
+    line-height: 30px;
+    display: block;
+    font-size: 18px;
+    color: #ffffff;
+    background: lightgray;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+  }
+  .progressbar-sm li:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 100%;
+    border-left: 2px lightgray solid;
+    top: 25px;
+    z-index: -1;
+    margin-left: .85rem;
+  }
+  .progressbar-sm li.active:before,
+  .progressbar-sm li.active:after {
+    background: skyblue
+  }
+  .progressbar-sm strong {
+    display: flex;
+    margin-left: 1.5rem;
+    margin-top: -3.7rem;
+  }
+}
+
+
+/*End Mahasiswa CSS */
