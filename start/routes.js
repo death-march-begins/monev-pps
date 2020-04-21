@@ -25,9 +25,9 @@ Route.group(() => {
   Route.post('/login', 'Auth/UserController.login').as('login.store')
   Route.post('/register/mhs', 'Auth/RegisterController.registerMhs')
   Route.post('/register/promotor', 'Auth/RegisterController.registerPromotor')
+  Route.get('/logout', 'Auth/AuthenticatedController.logout').as('logout.all')
 }).prefix('users')
 
-Route.get('/logout', 'Auth/AuthenticatedController.logout').as('logout')
 
 // Route Mahasiswa
 Route.group(() => {
@@ -39,5 +39,5 @@ Route.group(() => {
 
 // Route Promotor
 Route.group(() => {
-  Route.get('/dashboard', 'Promotor/PromotorController.dashboard').as('promotor.dashboard')
+  Route.get('/dashboard', 'Promotor/DashboardController.index').as('promotor.dashboard')
 }).prefix('promotor').middleware(['auth:promotor'])
