@@ -27,10 +27,20 @@ class PromotorController {
     const user = auth.user.toJSON()
     const db = await Database.connect('mongodb')
     const mhs = await db.collection("mahasiswas").findOne({nim: params.id})
-    return view.render('promotor.laman_mhs',{
+
+    const data={
       'user':user,
       'mahasiswa':mhs
-    })
+    }
+
+    if (mhs.penelitian) {
+      const penelitian = await db.collection("penelitians")
+          .findOne({ _id: mhs.penelitian })
+      penelitian['created_at'] = (new Date(penelitian['created_at'])).toLocaleDateString()
+      data['penelitian']=penelitian
+    }
+    
+    return view.render('promotor.laman_mhs',data)
   }
 }
 

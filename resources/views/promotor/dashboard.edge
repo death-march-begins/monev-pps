@@ -11,6 +11,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-right">
+                            <li class="breadcrumb-item"><a href="javascript:void(0);">Monev-in</a></li>
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
                     </div>
@@ -23,7 +24,7 @@
             <div class="col-xl-12">
                 <div class="card m-b-30">
                     <div class="card-body">
-                        <h4 class="mt-0 header-title mb-4">Mahasiswa Bimbingan</h4>
+                        <h4 class="mt-0 header-title mb-4">Daftar Mahasiswa Bimbingan</h4>
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead>
@@ -40,7 +41,7 @@
                                 <tbody>
                                     @if(bimbingan)
                                     @each(data in bimbingan)
-                                    <tr>
+                                    <tr title="click to see more" onclick="window.location='{{route('promotor.mhs-bimbingan',{id:data.nim})}}';" style="cursor:pointer;">
                                         <td>{{data.nama}}</td>
                                         <td>{{data.nim}}</td>
                                         <!-- <td><span class="badge badge-success">Delivered</span></td> -->
