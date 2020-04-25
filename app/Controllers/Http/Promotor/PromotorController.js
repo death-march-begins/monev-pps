@@ -1,6 +1,6 @@
 'use strict'
 
-const Penelitian = use('App/Models/RencanaPenelitian')
+const Penelitian = use('App/Models/Penelitian')
 const Mahasiswa = use('App/Models/Mahasiswa')
 const Database = use('Database')
 
@@ -9,7 +9,7 @@ class PromotorController {
     const user = auth.user.toJSON()
     const db = await Database.connect('mongodb')
 
-    const bimbingan = await db.collection("rencana_penelitians").find({promotor: user.first_name+" "+user.last_name}).toArray()
+    const bimbingan = await db.collection("penelitians").find({promotor: user.first_name+" "+user.last_name}).toArray()
     for(const item of bimbingan){
       const mhs = await db.collection("mahasiswas").findOne({ penelitian: item._id })
       item['updated_at'] = (new Date(item['updated_at'])).toISOString().slice(0, 19).replace(/-/g, "/").replace("T", " "); 

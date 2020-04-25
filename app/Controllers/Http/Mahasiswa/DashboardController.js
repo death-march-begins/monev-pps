@@ -1,6 +1,6 @@
 'use strict'
 
-const Penelitian = use('App/Models/RencanaPenelitian')
+const Penelitian = use('App/Models/Penelitian')
 const Mahasiswa = use('App/Models/Mahasiswa')
 const Database = use('Database')
 
@@ -14,7 +14,7 @@ class DashboardController {
             'user': user.toJSON()
         }
         if (user.penelitian) {
-            const penelitian = await db.collection("rencana_penelitians")
+            const penelitian = await db.collection("penelitians")
                 .findOne({ _id: user.penelitian })
             penelitian['created_at'] = (new Date(penelitian['created_at'])).toLocaleDateString()
             data['penelitian'] = penelitian
