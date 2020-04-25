@@ -39,5 +39,6 @@ Route.group(() => {
 
 // Route Promotor
 Route.group(() => {
-  Route.get('/dashboard', 'Promotor/DashboardController.index').as('promotor.dashboard')
+  Route.get('/dashboard', 'Promotor/PromotorController.dashboard').as('promotor.dashboard')
+  Route.get('/dashboard/mhs/:id', 'Promotor/PromotorController.getLamanMhs').as('promotor.mhs-bimbingan')
 }).prefix('promotor').middleware(['auth:promotor'])
