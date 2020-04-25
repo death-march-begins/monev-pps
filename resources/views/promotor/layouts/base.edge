@@ -11,22 +11,23 @@ Coded by Creative Tim
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    @include('promotor.layouts.header') 
-    @!section('extra_head')
+  @include('promotor.layouts.header')
+  @!section('extra_head')
 </head>
-
 <body>
-    <!-- Begin page -->
-    <div id="wrapper">
-        @include('promotor.layouts.navbar') 
-            @!section('content') 
-        @include('promotor.layouts.footer')
-    </div>
-    <!-- END wrapper -->
-</body>
-@include('promotor.layouts.scripts') 
-@!section('extra_scripts')
+<!-- Begin page -->
+<div id="wrapper">
+    @include('promotor.layouts.navbar')
+
+    @!section('content')
+
+    @include('promotor.layouts.footer')
+  </div>
+  <!-- END wrapper -->
+    </body>
+    @include('promotor.layouts.scripts')
+    @!section('extra_scripts')
 
 </html>
+
