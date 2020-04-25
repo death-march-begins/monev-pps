@@ -1,10 +1,193 @@
-<html>
-<header>
+@layout('promotor.layouts.base')
+@section('content')
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+        <div class="container-fluid">
+            <div class="page-title-box">
+                <div class="row align-items-center">
+                    <div class="col-sm-6">
+                        <h4 class="page-title">Dashboard</h4>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-right">
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- container-fluid -->
+        <!-- START ROW -->
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card m-b-30">
+                    <div class="card-body">
+                        <h4 class="mt-0 header-title mb-4">Mahasiswa Bimbingan</h4>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nama</th>
+                                        <th scope="col">NPM</th>
+                                        <th scope="col">Judul</th>
+                                        <th scope="col">Minat</th>
+                                        <th scope="col" colspan="2">Terakhir Diubah</th>
+                                        <!-- <th scope="col" colspan="2">Terakhir Diubah</th> -->
 
-</header>
-<body>
-<h1>
-  ini dashboard promotor {{user.first_name}} {{user.nik}}<a href="{{ route('logout') }}">logout</a>
-</h1>
-</body>
-</html>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if(bimbingan)
+                                    @each(data in bimbingan)
+                                    <tr>
+                                        <td>{{data.nama}}</td>
+                                        <td>{{data.nim}}</td>
+                                        <!-- <td><span class="badge badge-success">Delivered</span></td> -->
+                                        <!-- <td>
+                                            <div>
+                                                <img src="assets/images/users/user-2.jpg" alt=""
+                                                    class="thumb-md rounded-circle mr-2"> Philip Smead
+                                            </div>
+                                        </td> -->
+                                        <td>{{data.judul}}</td>
+                                        <td>{{data.minat}}</td>
+                                        <td>{{data.updated_at}}</td>
+
+                                        <td>
+                                            <div>
+                                                <a href="{{route('promotor.mhs-bimbingan',{id:data.nim})}}" class="btn btn-primary btn-sm">Lihat</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    @endeach
+                                    @endif
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- END ROW -->
+    </div>
+    <!-- content -->
+</div>
+
+@endsection
+
+@section('extra_head')
+<style>
+    .table {
+        font-size: 14px;
+    }
+
+    .timeline {
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .li {
+        transition: all 200ms ease-in;
+    }
+
+    .timestamp {
+        margin-bottom: 20px;
+        padding: 0px 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-weight: lighter;
+    }
+
+    .status {
+        padding: 0px 40px;
+        display: flex;
+        justify-content: center;
+        border-top: 2px solid #D6DCE0;
+        position: relative;
+        transition: all 200ms ease-in;
+    }
+
+    .status h4 {
+        padding-top: 15px;
+        font-weight: normal;
+        font-size: small;
+    }
+
+    .status:before {
+        content: "";
+        width: 25px;
+        height: 25px;
+        background-color: white;
+        border-radius: 25px;
+        border: 1px solid #ddd;
+        position: absolute;
+        top: -15px;
+        left: 42%;
+        transition: all 200ms ease-in;
+    }
+
+    .li.complete .status {
+        border-top: 2px solid #30419b;
+    }
+
+    .li.complete .status:before {
+        background-color: #30419b;
+        border: none;
+        transition: all 200ms ease-in;
+    }
+
+    .li.complete .status h4 {
+        color: #30419b;
+    }
+
+    @media (min-device-width: 320px) and (max-device-width: 700px) {
+        .table {
+            font-size: 10px;
+        }
+
+        .timeline {
+            list-style-type: none;
+            display: block;
+            padding-left: 0px;
+        }
+
+        .li {
+            transition: all 200ms ease-in;
+            display: flex;
+            width: inherit;
+        }
+
+        .timestamp {
+            width: 100px;
+            padding: 20px 0px 0px 10px;
+            align-items: first baseline;
+        }
+
+        .status {
+            border-top: none;
+            border-left: 2px solid #D6DCE0;
+        }
+
+        .status h4 {
+            font-size: small;
+        }
+
+        .li.complete .status {
+            border-top: none;
+            border-left: 2px solid #30419b;
+        }
+
+        .status:before {
+            left: -8%;
+            top: 30%;
+            transition: all 200ms ease-in;
+        }
+    }
+</style>
+@endsection
