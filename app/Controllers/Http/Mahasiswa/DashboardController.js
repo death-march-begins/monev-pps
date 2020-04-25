@@ -21,6 +21,14 @@ class DashboardController {
         }
         return view.render('mahasiswa.dashboard', data)
     }
+    if (user.penelitian) {
+      const penelitian = await db.collection("rencana_penelitians")
+        .findOne({_id: user.penelitian})
+      penelitian['created_at'] = (new Date(penelitian['created_at'])).toLocaleDateString()
+      data['penelitian'] = penelitian
+    }
+    return  view.render('mahasiswa.dashboard', data)
+  }
 
     async formPenelitian({ request, auth, view, response }) {
         const user = auth.user.toJSON()

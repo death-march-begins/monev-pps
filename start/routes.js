@@ -25,9 +25,9 @@ Route.group(() => {
   Route.post('/login', 'Auth/UserController.login').as('login.store')
   Route.post('/register/mhs', 'Auth/RegisterController.registerMhs')
   Route.post('/register/promotor', 'Auth/RegisterController.registerPromotor')
+  Route.get('/logout', 'Auth/AuthenticatedController.logout').as('logout.all')
 }).prefix('users')
 
-Route.get('/logout', 'Auth/AuthenticatedController.logout').as('logout')
 
 // Route Mahasiswa
 Route.group(() => {
