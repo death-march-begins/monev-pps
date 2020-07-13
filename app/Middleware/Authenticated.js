@@ -11,7 +11,6 @@ class Authenticated {
    */
   async handle ({ request, response, auth }, next) {
     // call next to advance the request
-
     try {
       console.log(await auth.authenticator('promotor').check())
       return response.route('promotor.dashboard')
