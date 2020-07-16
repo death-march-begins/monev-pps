@@ -1,0 +1,93 @@
+@layout('mahasiswa.layouts.base')
+
+@section('content')
+  <div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="page-title-box">
+          <div class="row align-items-center">
+            <div class="col-sm-6">
+              <h4 class="page-title">Rekap Nilai</h4>
+            </div>
+
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-right">
+                <li class="breadcrumb-item"><a href="javascript:void(0);">Monev-in</a></li>                
+                <li class="breadcrumb-item"><a href="{{ route('mahasiswa.rekap-nilai') }}">Rekap Nilai</a></li>
+              </ol>
+            </div>
+           </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="card m-b-30">
+                    <div class="card-body">
+                        
+                        <div class="table-head">
+                              <p class="mt-0">Nilai Kumulatif : <span class="font-weight-bold">4.0 / A</span></p>
+                              <span class="download-button"><a href="" type="button" class="btn btn-primary waves-effect waves-light"><i style="margin-right:0.5rem;" class="icon-cloud-download"></i>Download</a></span>
+                        </div>
+                        
+                        <div class="table table-responsive table-striped">
+                              <table class="table mb-0">
+                                  <thead>
+                                      <tr>
+                                          <th>Subjek</th>
+                                          <th>Nilai Numerik</th>
+                                          <th>Nilai Huruf</th>                                       
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr>
+                                          <td>Seminar Proposal</td>
+                                          <td>4.0</td>
+                                          <td>A</td>                                        
+                                      </tr>                                    
+                                  </tbody>
+                              </table>
+                          </div>
+
+                  </div>
+            </div>
+        </div> <!-- end col -->
+    </div> <!-- end row -->
+
+       
+
+      </div>
+      <!-- container-fluid -->
+
+    </div>
+    <!-- content -->
+    
+  </div>
+
+@endsection
+
+@section('extra_head')
+<style>
+      .table-head{
+            display: block;
+      }
+      .download-button{
+            float:right; 
+            margin-top: -2.75rem;
+      }
+
+      @media (max-device-width: 700px) {
+            .table-head{
+                  display: grid;
+            }
+           .download-button{
+                 display: contents;
+           } 
+      }
+
+</style>
+@endsection
+
+@section('extra_scripts')
+     
+@endsection

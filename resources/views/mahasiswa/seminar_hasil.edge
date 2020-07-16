@@ -1,0 +1,115 @@
+@layout('mahasiswa.layouts.base')
+
+@section('content')
+  <div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="page-title-box">
+          <div class="row align-items-center">
+            <div class="col-sm-6">
+              <h4 class="page-title">Seminar Hasil</h4>
+            </div>
+
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-right">
+                <li class="breadcrumb-item"><a href="javascript:void(0);">Monev-in</a></li>            
+                <li class="breadcrumb-item"><a href="{{ route('mahasiswa.seminar-hasil') }}">Seminar Hasil</a></li>
+              </ol>
+            </div>
+           </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="card m-b-30">
+                    <div class="card-body">
+                        <h4 class="mt-0 header-title">Form Pengajuan Seminar Hasil</h4>
+                        <hr>
+
+                        <form action="#">                        
+                              <div class="row">
+                                    <div class="col">
+                                          <div class="form-group">
+                                                <label>Waktu Seminar Hasil</label>
+                                                <div>
+                                                      <div class="input-group">
+                                                            <input type="text" class="form-control form-date" placeholder="mm/dd/yyyy" id="tgl-seminar">
+                                                            <div class="input-group-append bg-custom b-0"><span class="input-group-text"><i class="mdi mdi-calendar"></i></span></div>                                    
+                                                      </div><!-- input-group -->                        
+                                                </div>
+                                          </div> 
+                                    </div>
+                                    <div class="col">
+                                          <div class="form-group">
+                                                <label>Time</label>
+                                                <input type="time" class="form-control" required placeholder="00:00 AM/PM"/>
+                                            </div>
+                                    </div>
+                              </div>
+
+                              <div class="form-group">
+                                    <label>Pilih Penguji</label>
+                                    <div>
+                                        <input type="text" class="form-control form-penguji" required
+                                               placeholder="Penguji 1"/>
+                                    </div>
+                                    <div class="m-t-10">
+                                        <input type="text" class="form-control form-penguji" required                                     
+                                               placeholder="Penguji 2"/>
+                                    </div>
+                                    <div class="m-t-10">
+                                          <input type="text" class="form-control form-penguji" required                                     
+                                                 placeholder="Penguji 3"/>
+                                      </div>
+                                </div>
+
+                         </form>
+                                          
+                                    
+                      <div style="float:right">                           
+                        <a href="javascript:void(0);" type="button" class="btn btn-primary waves-effect waves-light" style="margin-top: 1.5rem;">Ajukan Seminar</a>                  
+                      </div>
+
+                  </div>
+            </div>
+        </div> <!-- end col -->
+    </div> <!-- end row -->
+
+       
+
+      </div>
+      <!-- container-fluid -->
+
+    </div>
+    <!-- content -->
+    
+  </div>
+
+@endsection
+
+@section('extra_head')
+  <link href="{{ assetsUrl('plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css') }}" rel="stylesheet">
+  <style>
+     .form-penguji{
+           width: 49%;
+     }
+     @media (max-device-width: 700px) {
+      .form-penguji{
+           width: 100%;
+     }
+     }
+  </style>
+@endsection
+
+@section('extra_scripts')
+      <script src="{{ assetsUrl('plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+      <script src="{{ assetsUrl('assets/stexo_v1.1.0/pages/form-advanced.js') }}"></script>
+      <script>
+            $('#tgl-seminar').datepicker({
+                  uiLibrary: 'bootstrap4',
+                  autoclose: true,
+                  todayHighlight: true
+            });
+      </script>
+@endsection
