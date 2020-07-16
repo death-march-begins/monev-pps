@@ -1,0 +1,156 @@
+@layout('mahasiswa.layouts.base')
+
+@section('content')
+  <div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="page-title-box">
+          <div class="row align-items-center">
+            <div class="col-sm-6">
+              <h4 class="page-title">Ujian Tertutup</h4>
+            </div>
+
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-right">
+                <li class="breadcrumb-item"><a href="javascript:void(0);">Monev-in</a></li>            
+                <li class="breadcrumb-item"><a href="{{ route('mahasiswa.ujian-tertutup') }}">Ujian Tertutup</a></li>
+              </ol>
+            </div>
+           </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="card m-b-30">
+                    <div class="card-body">
+                        <h4 class="mt-0 header-title">Form Pengajuan Ujian Tertutup</h4>
+                        <hr>
+
+                        <form action="#">                        
+                              <div class="row">
+                                    <div class="col">
+                                          <div class="form-group">
+                                                <label>Waktu Ujian Tertutup</label>
+                                                <div>
+                                                      <div class="input-group">
+                                                            <input type="text" class="form-control form-date" placeholder="mm/dd/yyyy" id="tgl-ujian" name="tgl-ujian">
+                                                            <div class="input-group-append bg-custom b-0"><span class="input-group-text"><i class="mdi mdi-calendar"></i></span></div>                                    
+                                                      </div><!-- input-group -->                        
+                                                </div>
+                                          </div> 
+                                    </div>
+                                    <div class="col">
+                                          <div class="form-group">
+                                                <label>Time</label>
+                                                <input type="time" class="form-control" required placeholder="00:00 AM/PM" id="wkt-ujian" name="wkt-ujian"/>
+                                            </div>
+                                    </div>
+                              </div>
+
+                              <div class="row">
+                                    <div class="col">
+                                          <div class="form-group">
+                                                <label>Pilih Penguji</label>
+                                                <div>
+                                                <input type="text" class="form-control" required
+                                                      placeholder="Penguji 1" id="penguji1" name="penguji1"/>
+                                                </div>
+                                                <div class="m-t-10">
+                                                <input type="text" class="form-control" required                                     
+                                                      placeholder="Penguji 2" id="penguji2" name="penguji2"/>
+                                                </div>
+                                                <div class="m-t-10">
+                                                      <input type="text" class="form-control" required                                     
+                                                            placeholder="Penguji 3" id="penguji3" name="penguji3"/>
+                                                </div>
+                                          </div>
+                                    </div>
+                                    <div class="col">
+                                          <div class="form-group">
+                                                <label>Upload Kelengkapan Berkas</label>     
+                                                <p><i> NOTE : Berkas HARUS di-compress dan Maksimum ukuran 5 MB</i></p>                                           
+                                                <div class="dropzone" id="my-dropzone">                                                      
+                                                      <div class="fallback">
+                                                            <input name="file" type="file">
+                                                      </div>
+                                                </div>                                         
+                                          </div>                                    
+                                    </div>
+                              </div>
+
+                         </form>
+                                          
+                                    
+                      <div style="float:right">                           
+                        <a id="submit-all" href="#" type="button" class="btn btn-primary waves-effect waves-light" style="margin-top: 1.5rem;">Ajukan Ujian</a>                  
+                      </div>
+
+                  </div>
+            </div>
+        </div> <!-- end col -->
+    </div> <!-- end row -->
+
+       
+
+      </div>
+      <!-- container-fluid -->
+
+    </div>
+    <!-- content -->
+    
+  </div>
+
+@endsection
+
+@section('extra_head')
+    <!-- Dropzone css -->
+    <link href="{{ assetsUrl('plugins/dropzone/dist/dropzone.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ assetsUrl('plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css') }}" rel="stylesheet">
+@endsection
+
+@section('extra_scripts')
+      <!-- Dropzone js -->
+    <script src="{{ assetsUrl('plugins/dropzone/dist/dropzone.js') }}"></script>
+    <script src="{{ assetsUrl('plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ assetsUrl('assets/stexo_v1.1.0/pages/form-advanced.js') }}"></script>
+    <script>
+      $('#tgl-ujian').datepicker({
+            uiLibrary: 'bootstrap4',
+            autoclose: true,
+            todayHighlight: true
+      });
+
+         Dropzone.options.myDropzone= {
+            url: 'javascript:void(0);',
+            autoProcessQueue: false,
+            uploadMultiple: false,
+            parallelUploads: 5,
+            maxFiles: 1,
+            maxFilesize: 5,
+            acceptedFiles: '.zip, .tar.gz',
+            addRemoveLinks: true,
+            init: function() {
+                  dzClosure = this; // Makes sure that 'this' is understood inside the functions below.
+
+                  // for Dropzone to process the queue (instead of default form behavior):
+                  document.getElementById("submit-all").addEventListener("click", function(e) {
+                        // Make sure that the form isn't actually being sent.
+                        e.preventDefault();
+                        e.stopPropagation();
+                        dzClosure.processQueue();
+                  });
+
+                  //send all the form data along with the files:
+                  this.on("sendingmultiple", function(data, xhr, formData) {
+                        formData.append("tgl-ujian", jQuery("#tgl-ujian").val());
+                        formData.append("wkt-ujian", jQuery("#wkt-ujian").val());
+                        formData.append("penguji1", jQuery("#penguji1").val());
+                        formData.append("penguji2", jQuery("#penguji2").val());
+                        formData.append("penguji3", jQuery("#penguji3").val());
+                  });
+            }
+      }
+
+    </script>
+@endsection

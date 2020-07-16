@@ -1,0 +1,136 @@
+@layout('mahasiswa.layouts.base')
+
+@section('content')
+  <div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="page-title-box">
+          <div class="row align-items-center">
+            <div class="col-sm-6">
+              <h4 class="page-title">Laporan {{n_laporan}}</h4>
+            </div>
+
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-right">
+                <li class="breadcrumb-item"><a href="javascript:void(0);">Monev-in</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0);">Penelitian</a></li>
+                <li class="breadcrumb-item active">Laporan {{n_laporan}}</li>
+              </ol>
+            </div>
+           </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="card m-b-30">
+                    <div class="card-body">
+                        
+                        <div class="table-head">
+                              <h4 class="mt-0 header-title">Upload Berkas Laporan Penelitian {{n_laporan}}</h4>
+                              <span class="upload-button"><a href="{{ route('mahasiswa.penelitian.laporan.upload',{n:n_laporan}) }}" type="button" class="btn btn-primary waves-effect waves-light"><i style="margin-right:0.5rem;" class="icon-cloud-upload"></i>Upload</a></span>
+                        </div>
+                       
+                                           
+                        <hr>
+                        <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                            <thead>
+                            <tr>
+                                <th>Nama File</th>
+                                <th>Waktu Upload</th>
+                                <th>Status</th>
+                                <th>Pesan</th>
+                                <th>Download</th>                                
+                            </tr>
+                            </thead>
+
+
+                            <tbody>
+                            <tr>
+                                <td>
+                                      <a style="display: flex;" href="javascript:void(0);">
+                                          <i class="mdi mdi-pdf-box pdf-logo"></i>
+                                          <div class="link" style="margin-top: 0.5rem;">Laporan1v0.0.1.pdf</div>
+                                      </a>
+                                </td>
+                                <td>14/7/2020 10.32 PM</td>
+                                <td>Progress 1</td>
+                                <td>Yang ini belum selesai pak</td>
+                                <td><a href="javascript:void(0);"><div class="link">Download</div></a></td>                           
+                            </tr>                                                                 
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div> <!-- end col -->
+        </div> <!-- end row -->
+       
+
+      </div>
+      <!-- container-fluid -->
+
+    </div>
+    <!-- content -->
+    
+  </div>
+
+@endsection
+
+@section('extra_head')
+      <style>
+            .table-head{
+                  display: block;
+            }
+            .upload-button{
+                  float:right; 
+                  margin-top: -2rem;
+            }
+            .pdf-logo{
+                  color: red; 
+                  margin-right: 0.5rem;
+                  font-size: 24px;
+            }
+
+            .link{
+                  color: blue;
+            }
+
+            @media (max-device-width: 700px) {
+                  .table-head{
+                        display: grid;
+                  }
+                 .upload-button{
+                       display: contents;
+                 } 
+            }
+
+      </style>
+@endsection
+
+@section('extra_scripts')
+       <!-- DataTables -->
+      <link href="{{ assetsUrl('plugins/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+      <link href="{{ assetsUrl('plugins/datatables/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+
+      <!-- Responsive datatable examples -->
+      <link href="{{ assetsUrl('plugins/datatables/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+      <!-- Required datatable js -->
+      <script src="{{ assetsUrl('plugins/datatables/jquery.dataTables.min.js') }}"></script>
+      <script src="{{ assetsUrl('plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
+      <!-- Buttons examples -->
+      <script src="{{ assetsUrl('plugins/datatables/dataTables.buttons.min.js') }}"></script>
+      <script src="{{ assetsUrl('plugins/datatables/buttons.bootstrap4.min.js') }}"></script>
+      <script src="{{ assetsUrl('plugins/datatables/jszip.min.js') }}"></script>
+      <script src="{{ assetsUrl('plugins/datatables/pdfmake.min.js') }}"></script>
+      <script src="{{ assetsUrl('plugins/datatables/vfs_fonts.js') }}"></script>
+      <script src="{{ assetsUrl('plugins/datatables/buttons.html5.min.js') }}"></script>
+      <script src="{{ assetsUrl('plugins/datatables/buttons.print.min.js') }}"></script>
+      <script src="{{ assetsUrl('plugins/datatables/buttons.colVis.min.js') }}"></script>
+      <!-- Responsive examples -->
+      <script src="{{ assetsUrl('plugins/datatables/dataTables.responsive.min.js') }}"></script>
+      <script src="{{ assetsUrl('plugins/datatables/responsive.bootstrap4.min.js') }}"></script>
+
+      <!-- Datatable init js -->
+      <script src="{{ assetsUrl('assets/stexo_v1.1.0/pages/datatables.init.js') }}"></script> 
+@endsection

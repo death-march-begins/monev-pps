@@ -1,0 +1,71 @@
+@layout('mahasiswa.layouts.base')
+
+@section('content')
+  <div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="page-title-box">
+          <div class="row align-items-center">
+            <div class="col-sm-6">
+              <h4 class="page-title">Upload Laporan {{n_laporan}}</h4>
+            </div>
+
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-right">
+                <li class="breadcrumb-item"><a href="javascript:void(0);">Monev-in</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0);">Penelitian</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('mahasiswa.penelitian.laporan',{n:n_laporan}) }}">Laporan {{n_laporan}}</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('mahasiswa.penelitian.laporan.upload',{n:n_laporan}) }}">Upload</a></li>
+              </ol>
+            </div>
+           </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="card m-b-30">
+                    <div class="card-body">
+                        <h4 class="mt-0 header-title">Upload Berkas Laporan Penelitian {{n_laporan}}</h4>
+                        <hr>
+
+                        <div class="m-b-30">
+                          <form action="#" class="dropzone">
+                              <div class="fallback">
+                                  <input name="file" type="file" multiple="multiple">
+                              </div>
+                          </form>
+                      </div>
+                  
+                      <div style="float:right">
+                        <a href="javascript:void(0);" type="button" class="btn btn-danger waves-effect waves-light" style="margin-right: 1rem;">Batal</a>   
+                        <a href="javascript:void(0);" type="button" class="btn btn-primary waves-effect waves-light">Upload</a>                  
+                      </div>
+
+                  </div>
+            </div>
+        </div> <!-- end col -->
+    </div> <!-- end row -->
+
+       
+
+      </div>
+      <!-- container-fluid -->
+
+    </div>
+    <!-- content -->
+    
+  </div>
+
+@endsection
+
+@section('extra_head')
+    <!-- Dropzone css -->
+    <link href="{{ assetsUrl('plugins/dropzone/dist/dropzone.css') }}" rel="stylesheet" type="text/css">
+@endsection
+
+@section('extra_scripts')
+    <!-- Dropzone js -->
+    <script src="{{ assetsUrl('plugins/dropzone/dist/dropzone.js') }}"></script>
+    <script src="{{ assetsUrl('assets/stexo_v1.1.0/pages/form-advanced.js') }}"></script>
+@endsection
