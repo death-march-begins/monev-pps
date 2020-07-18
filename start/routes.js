@@ -32,18 +32,15 @@ Route.group(() => {
 // Route Mahasiswa
 Route.group(() => {
   Route.get('/dashboard', 'Mahasiswa/DashboardController.index').as('mahasiswa.dashboard')
-  Route.get('/dashboard/form-pengajuan', 'Mahasiswa/DashboardController.formPenelitian').as('mahasiswa.form-penelitian')
-  Route.post('/dashboard/form-pengajuan', 'Mahasiswa/DashboardController.sendForm').as('mahasiswa.send-form')
-
-  Route.get('/penelitian/laporan/:n', 'Mahasiswa/PenelitianController.laporan').as('mahasiswa.penelitian.laporan')
-  Route.get('/penelitian/laporan/:n/upload', 'Mahasiswa/PenelitianController.laporan_upload').as('mahasiswa.penelitian.laporan.upload')
-
   Route.get('/seminar-hasil', 'Mahasiswa/SeminarHasilController.index').as('mahasiswa.seminar-hasil')
-
   Route.get('/ujian-tertutup', 'Mahasiswa/UjianTertutupController.index').as('mahasiswa.ujian-tertutup')
-
   Route.get('/rekap-nilai', 'Mahasiswa/RekapNilaiController.index').as('mahasiswa.rekap-nilai')
-  
+  Route.get('/penelitian/laporan/:n/upload', 'Mahasiswa/PenelitianController.laporan_upload').as('mahasiswa.penelitian.laporan.upload')
+  Route.get('/penelitian/laporan/:n', 'Mahasiswa/PenelitianController.laporan').as('mahasiswa.penelitian.laporan')
+  Route.get('/rencana-penelitian/form-rencana', 'Mahasiswa/RencanaPenelitianController.formRencanaIndex').as('mahasiswa.form-rencana')
+  Route.post('/rencana-penelitian/form-rencana', 'Mahasiswa/RencanaPenelitianController.sendFormRencana').as('mahasiswa.send-form')
+  Route.get('/proposal/pengajuan', 'Mahasiswa/ProposalController.pengajuanIndex').as('mahasiswa.pengajuan-proposal')
+  Route.get('/proposal/seminar', 'Mahasiswa/ProposalController.seminarIndex').as('mahasiswa.pengajuan-seminar')
 }).prefix('mahasiswa').middleware(['auth:mahasiswa'])
 
 
