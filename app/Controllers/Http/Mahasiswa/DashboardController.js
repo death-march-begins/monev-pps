@@ -22,44 +22,6 @@ class DashboardController {
         return view.render('mahasiswa.dashboard', data)
     }
 
-    async formPenelitian({ request, auth, view, response }) {
-        const user = auth.user.toJSON()
-        if (user.penelitian) {
-            return response.redirect('back')
-        }
-        return view.render('mahasiswa.form_penelitian', {
-            'user': user
-        })
-    }
-
-    async sendForm({ request, response, auth }) {
-        const db = await Database.connect('mongodb')
-        const { judul, minat, promotor, ko_promotor1, ko_promotor2 } = request.only([
-            'judul',
-            'minat',
-            'promotor',
-            'ko_promotor1',
-            'ko_promotor2',
-        ])
-
-        const penelitian = await Penelitian.create({
-            'judul': judul,
-            'minat': minat,
-            'promotor': promotor,
-            'ko_promotor1': ko_promotor1,
-            'ko_promotor2': ko_promotor2,
-        })
-
-        const mahasiswa = await db.collection("mahasiswas")
-        await mahasiswa.update({ _id: auth.user._id }, {
-            $set: {
-                penelitian: penelitian._id,
-            }
-        })
-
-        return response.route('mahasiswa.dashboard')
-
-    }
 }
 
 module.exports = DashboardController

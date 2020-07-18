@@ -8,13 +8,12 @@
       <div class="page-title-box">
         <div class="row align-items-center">
           <div class="col-sm-6">
-            <h4 class="page-title">Pengajuan</h4>
+            <h4 class="page-title">Rencana Penelitian</h4>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-right">
               <li class="breadcrumb-item"><a href="javascript:void(0);">Monev-in</a></li>
-              <li class="breadcrumb-item active">Dashboard</li>
-              <li class="breadcrumb-item active">Pengajuan</li>
+              <li class="breadcrumb-item active">Rencana Penelitian</li>
             </ol>
           </div>
         </div>
@@ -25,48 +24,57 @@
         <div class="col-xl-12">
           <div class="card m-b-30">
             <div class="card-header bg-white">
-              <h4 class="header-title">Ajukan Rencana Penelitian</h4>
+              <h4 class="header-title">Form Pengajuan Rencana Penelitian</h4>
             </div>
             <div class="card-body">
-              <form class="" action="{{ route('mahasiswa.send-form') }}" method="post">
-                <div class="form-group row">
-                  <label for="judul" class="col-sm-2 col-form-label">Judul Penelitian</label>
-                  <div class="col-sm-10">
+              <form class="row" action="{{ route('mahasiswa.send-form') }}" method="post">
+                <div class="form-group col-md-12">
+                  <label class="form-label" for="judul">Judul Penelitian</label>
                     <input class="form-control" type="text" id="judul" name="judul" placeholder="Isi Judul Penelitian" required>
-                  </div>
+                 
                 </div>
 
-                <div class="form-group row">
-                  <label for="minat" class="col-sm-2 col-form-label">Bidang Ilmu</label>
-                  <div class="col-sm-5">
+                <div class="form-group col-md-6">
+                  <label class="form-label" for="minat">Bidang Ilmu</label>
                     <input class="form-control" type="text" id="minat" name="minat" placeholder="Pilih Bidang Ilmu" required>
-                  </div>
                 </div>
+                
+                <div class="col-md-6"></div>
 
-                <div class="form-group row">
-                  <label for="promotor" class="col-sm-2 col-form-label">Promotor</label>
-                  <div class="col-sm-5">
+                <div class="form-group col-md-6">
+                  <label class="form-label" for="promotor">Promotor</label>
+        
                     <input class="form-control" type="text" id="promotor" name="promotor" placeholder="Pilih Promotor" required>
+                  
+                </div>
+
+                <div class="col-md-6">
+                  <div>
+                    <button type="button" class="btn btn-info float-right">Lihat List Promotor</button>
                   </div>
                 </div>
 
-                <div class="form-group row">
-                  <label for="ko-promotor1" class="col-sm-2 col-form-label">Ko Promotor I</label>
-                  <div class="col-sm-5">
+
+                <div class="form-group col-md-6">
+                  <label class="form-label" for="ko-promotor1">Ko Promotor I</label>
                     <input class="form-control" type="text" id="ko-promotor1" name="ko_promotor1" placeholder="Pilih Ko Promotor I" required>
-                  </div>
                 </div>
 
-                <div class="form-group row">
-                  <label for="ko-promotor2" class="col-sm-2 col-form-label">Ko Promotor II</label>
-                  <div class="col-sm-5">
+                <div class="form-group col-md-6">
+                  <label class="form-label" for="ko-promotor2">Ko Promotor II</label>
                     <input class="form-control" type="text" id="ko-promotor2" name="ko_promotor2" placeholder="Pilih Ko Promotor II" required>
+                </div>
+
+                <div class="form-group col-md-12">
+                  <label class="form-label" for="ko-promotor2">Deskripsi Penelitian</label>
+                  <div>
+                    <textarea required class="form-control" rows="5"></textarea>
                   </div>
                 </div>
 
-                <div class="form-group row">
-                  <div class="col-sm-12">
-                    <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target=".send-form-modal" >Ajukan Rencana</button>
+                <div class="form-group col-md-12 mt-4">
+                  <div>
+                    <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target=".send-form-modal" >Ajukan Penelitian</button>
                   </div>
                 </div>
 
@@ -95,4 +103,14 @@
   </div>
 </div>
 </div>
+@endsection
+
+@section('extra_head')
+
+  <style>
+    .form-label {
+      color: #30419b;
+    }
+  </style>
+
 @endsection
