@@ -6,7 +6,7 @@ class SeminarHasilController {
             const data = {
                   'user' : user.toJSON()
             }
-            return view.render('mahasiswa.seminar_hasil', data)
+            return view.render('mahasiswa.seminar_hasil.seminar_hasil', data)
       }
 }
 
