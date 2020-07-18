@@ -1,0 +1,109 @@
+@layout('mahasiswa.layouts.base')
+
+@section('content')
+
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="page-title-box">
+          <div class="row align-items-center">
+            <div class="col-sm-6">
+              <h4 class="page-title">Proposal Penelitian</h4>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-right">
+                <li class="breadcrumb-item"><a href="javascript:void(0);">Monev-in</a></li>
+                <li class="breadcrumb-item active">Proposal</li>
+                <li class="breadcrumb-item active">Pengajuan</li>
+              </ol>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card m-b-30">
+                    
+                    <div class="card-header bg-white">
+                        <div class="row">
+                        <div class="col-sm-9">
+                          <h4 class="header-title">UPLOAD BERKAS PROPOSAL</h4>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="#" class="btn btn-primary float-right"><i class="fas fa-file-alt"> </i> Upload File</a>
+                        </div>
+                        </div>
+                      </div>    
+
+                    <div class="card-body">
+
+                        <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                            <thead>
+                            <tr>
+                                <th>Nama File</th>
+                                <th>Waktu Upload</th>
+                                <th>Status</th>
+                                <th>Pesan</th>
+                                <th>Unduh</th>
+                            </tr>
+                            </thead>
+
+
+                            <tbody>
+                            <tr>
+                                <td>Tiger Nixon</td>
+                                <td>System Architect</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+                                <td>2011/04/25</td>
+                            </tr>
+                            <tr>
+                                <td>Garrett Winters</td>
+                                <td>Accountant</td>
+                                <td>Tokyo</td>
+                                <td>63</td>
+                                <td>2011/07/25</td>
+                            </tr>
+                         
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div> <!-- end col -->
+        </div> <!-- end row -->
+
+      </div>
+    </div>
+</div>
+
+@endsection
+
+@section('extra_head')
+
+    <!-- DataTables -->
+    <link href="{{ assetsUrl('plugins') }}/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ assetsUrl('plugins') }}/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+     <!-- Responsive datatable examples -->
+     <link href="{{ assetsUrl('plugins') }}/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+  
+@endsection
+
+@section('extra_scripts')
+    <!-- Required datatable js -->
+    <script src="{{ assetsUrl('plugins') }}/datatables/jquery.dataTables.min.js"></script>
+    <script src="{{ assetsUrl('plugins') }}/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Responsive examples -->
+    <script src="{{ assetsUrl('plugins') }}/datatables/dataTables.responsive.min.js"></script>
+    <script src="{{ assetsUrl('plugins') }}/datatables/responsive.bootstrap4.min.js"></script>
+
+    <!-- Proposal ajax -->
+    <script src="{{ assetsUrl('ajax') }}/proposal.js"></script>
+
+    
+@endsection
