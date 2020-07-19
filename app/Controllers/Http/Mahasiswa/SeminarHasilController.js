@@ -8,6 +8,7 @@ class SeminarHasilController {
             }
             return view.render('mahasiswa.seminar_hasil.seminar_hasil', data)
       }
+
 }
 
 module.exports = SeminarHasilController
