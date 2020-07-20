@@ -7,7 +7,7 @@ class RekapNilaiController {
             const data = {
                   'user' : user.toJSON()
             }
-            return view.render('mahasiswa.rekap_nilai', data)
+            return view.render('mahasiswa.rekap_nilai.rekap_nilai', data)
       }
 }
 

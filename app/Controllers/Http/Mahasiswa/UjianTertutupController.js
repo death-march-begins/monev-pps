@@ -6,7 +6,7 @@ class UjianTertutupController {
             const data = {
                   'user' : user.toJSON()
             }
-            return view.render('mahasiswa.ujian_tertutup', data)
+            return view.render('mahasiswa.ujian_tertutup.ujian_tertutup', data)
       }
 }
 
