@@ -22,20 +22,19 @@
         
         <div class="row">
             <div class="col-12">
-                <div class="card m-b-30">
-                    <div class="card-body">
+                <div class="card m-b-30">                  
+                  @if(isAvailable)
+                  <div class="card-body">
                         <h4 class="mt-0 header-title">Form Pengajuan Seminar Hasil</h4>
                         <hr>
-
-                        <form action="#">                        
+                        <form action="{{ route('mahasiswa.seminar-hasil.sendForm') }}" method="post">                        
                               <div class="row">
                                     <div class="col">
                                           <div class="form-group">
                                                 <label>Waktu Seminar Hasil</label>
                                                 <div>
                                                       <div class="input-group">
-                                                            <input type="text" class="form-control form-date" placeholder="mm/dd/yyyy" id="tgl-seminar">
-                                                            <div class="input-group-append bg-custom b-0"><span class="input-group-text"><i class="mdi mdi-calendar"></i></span></div>                                    
+                                                            <input type="date" id="tgl-seminar" class="form-control"  name="tgl_seminar" placeholder="dd/mm/yyyy" required />                                                                                          
                                                       </div><!-- input-group -->                        
                                                 </div>
                                           </div> 
@@ -43,7 +42,7 @@
                                     <div class="col">
                                           <div class="form-group">
                                                 <label>Time</label>
-                                                <input type="time" class="form-control" required placeholder="00:00 AM/PM"/>
+                                                <input type="time" class="form-control" name="wkt_seminar" placeholder="00:00 - 24:00" required/>
                                             </div>
                                     </div>
                               </div>
@@ -51,26 +50,30 @@
                               <div class="form-group">
                                     <label>Pilih Penguji</label>
                                     <div>
-                                        <input type="text" class="form-control form-penguji" required
+                                        <input type="text" class="form-control form-penguji" name="penguji_1" required
                                                placeholder="Penguji 1"/>
                                     </div>
                                     <div class="m-t-10">
-                                        <input type="text" class="form-control form-penguji" required                                     
+                                        <input type="text" class="form-control form-penguji" name="penguji_2" required                                     
                                                placeholder="Penguji 2"/>
                                     </div>
                                     <div class="m-t-10">
-                                          <input type="text" class="form-control form-penguji" required                                     
+                                          <input type="text" class="form-control form-penguji" name="penguji_3" required                                     
                                                  placeholder="Penguji 3"/>
                                       </div>
                                 </div>
-                         </form>
-                                          
-                                    
-                      <div style="float:right">                           
-                        <a type="button" href="#" class="btn btn-primary waves-effect waves-light" style="margin-top: 1.5rem;">Ajukan Seminar</a>                  
-                      </div>
 
+                                <div style="float:right">                           
+                                    <button type="submit" class="btn btn-primary waves-effect waves-light" style="margin-top: 1.5rem;">Ajukan Seminar</button>                  
+                              </div>
+                         </form>
                   </div>
+                  @else
+                        <div class="card-body" style="text-align:center;">
+                              <img src="{{ assetsUrl('assets') }}/stexo_v1.1.0/images/waiting.gif" alt="waiting ..." width="300" height="300">    
+                              <h5 style="margin-top: 2rem; margin-bottom: 2rem;"><i>Sedang Menunggu Persetujuan ...</i></h5>   
+                        </div>
+                  @endif                            
             </div>
         </div> <!-- end col -->
     </div> <!-- end row -->
@@ -88,7 +91,6 @@
 @endsection
 
 @section('extra_head')
-  <link href="{{ assetsUrl('plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css') }}" rel="stylesheet">
   <style>
      .form-penguji{
            width: 49%;
@@ -102,13 +104,4 @@
 @endsection
 
 @section('extra_scripts')
-      <script src="{{ assetsUrl('plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
-      <script src="{{ assetsUrl('assets/stexo_v1.1.0/pages/form-advanced.js') }}"></script>
-      <script>
-            $('#tgl-seminar').datepicker({
-                  uiLibrary: 'bootstrap4',
-                  autoclose: true,
-                  todayHighlight: true
-            });
-      </script>
 @endsection
