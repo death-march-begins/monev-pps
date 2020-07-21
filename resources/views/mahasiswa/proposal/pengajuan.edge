@@ -33,7 +33,7 @@
                           <h4 class="header-title">UPLOAD BERKAS PROPOSAL</h4>
                         </div>
                         <div class="col-sm-3">
-                            <a href="#" class="btn btn-primary float-right"><i class="fas fa-file-alt"> </i> Upload File</a>
+                            <a href="#" class="btn btn-primary float-right" data-toggle="modal" data-target=".upload-modal"><i class="fas fa-file-alt"> </i> Upload File</a>
                         </div>
                         </div>
                       </div>    
@@ -54,22 +54,50 @@
 
                             <tbody>
                             <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
+                                <td><i class="fas fa-file-pdf text-danger pr-2"></i> Proposal_v1.pdf</td>
+                                <td>10/01/2020</td>
+                                <td class="text-danger">ditolak</td>
+                                <td><a href="#">Tampilkan</a></td>
+                                <td><a href="#">Download</a></td>
                             </tr>
                             <tr>
-                                <td>Garrett Winters</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>63</td>
-                                <td>2011/07/25</td>
+                              <td><i class="fas fa-file-pdf text-danger pr-2"></i> Proposal_v2.pdf</td>
+                              <td>13/01/2020</td>
+                              <td class="text-success">diterima</td>
+                              <td><a href="#">Tampilkan</a></td>
+                              <td><a href="#">Download</a></td>
                             </tr>
                          
                             </tbody>
                         </table>
+
+                        <form>
+                        <div class="modal fade upload-modal" tabindex="-1" role="dialog">
+                          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                            <div class="modal-content">
+                              <div class="modal-body">
+                              
+                                <h4 class="mt-0 header-title">Upload Proposal</h4>
+                                <p class="sub-title">Seret berkas proposal pada kotak dibawah
+                                </p>
+
+                                <div class="m-b-30">
+                                    <div action="#" class="dropzone" style="border: 2px dashed rgba(0, 0, 0, 0.3);">
+                                        <div class="fallback">
+                                            <input name="file" type="file" multiple="multiple">
+                                        </div>
+                                      </div>
+                                </div>
+
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Upload</button>
+                              </div>
+                            </div><!-- /.modal-content -->
+                          </div><!-- /.modal-dialog -->
+                        </div><!-- /.modal -->
+                        </form>
 
                     </div>
                 </div>
@@ -83,6 +111,8 @@
 @endsection
 
 @section('extra_head')
+    <!-- Dropzone css -->
+    <link href="{{ assetsUrl('plugins') }}/dropzone/dist/dropzone.css" rel="stylesheet" type="text/css">
 
     <!-- DataTables -->
     <link href="{{ assetsUrl('plugins') }}/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
@@ -104,6 +134,9 @@
 
     <!-- Proposal ajax -->
     <script src="{{ assetsUrl('ajax') }}/proposal.js"></script>
+
+     <!-- Dropzone js -->
+     <script src="{{ assetsUrl('plugins') }}/dropzone/dist/dropzone.js"></script>
 
     
 @endsection
