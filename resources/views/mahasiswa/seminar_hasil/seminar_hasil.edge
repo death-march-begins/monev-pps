@@ -23,10 +23,19 @@
         <div class="row">
             <div class="col-12">
                 <div class="card m-b-30">                  
-                  @if(isAvailable)
+                  @if(isAvailable == 1 || isAvailable == 3)
+
                   <div class="card-body">
                         <h4 class="mt-0 header-title">Form Pengajuan Seminar Hasil</h4>
                         <hr>
+                        @if(isAvailable == 3)                              
+                              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    Pengajuan Anda telah <strong>DITOLAK</strong>. Silahkan mengajukan kembali.
+                              </div>
+                        @endif
                         <form action="{{ route('mahasiswa.seminar-hasil.sendForm') }}" method="post">                        
                               <div class="row">
                                     <div class="col">
@@ -68,10 +77,52 @@
                               </div>
                          </form>
                   </div>
-                  @else
+                  @elseif(isAvailable == 0)
                         <div class="card-body" style="text-align:center;">
                               <img src="{{ assetsUrl('assets') }}/stexo_v1.1.0/images/waiting.gif" alt="waiting ..." width="300" height="300">    
                               <h5 style="margin-top: 2rem; margin-bottom: 2rem;"><i>Sedang Menunggu Persetujuan ...</i></h5>   
+                        </div>
+                  @elseif(isAvailable == 2)
+                        <div class="card-body">
+                              <div id="card-waktu" class="row">
+                                    <div class="col">
+                                          <p>Tanggal dan Waktu Seminar Hasil  :  </p>
+                                          <p><i>Senin, 10 Oktober 2020, Pukul 10.00 WIB</i></p>
+                                    </div>
+                                    <div class="col">
+                                          <button type="button" class="btn btn-primary waves-effect waves-light" style="margin-top: 1rem; float: right;">Ubah Waktu</button>
+                                    </div>
+                              </div>
+                              <hr>
+                              <div id="card-lembar-permohonan" class="row">
+                                    <div class="col">
+                                          <br>
+                                          <p>Lembar Permohonan Seminar Hasil</p>                                         
+                                    </div>
+                                    <div class="col">
+                                          <button type="button" class="btn btn-primary waves-effect waves-light" style="margin-top: 1rem; float: right;">Download</button>
+                                    </div>
+                              </div> 
+                              <hr>
+                              <div id="card-lembar-persetujuan" class="row">
+                                    <div class="col">
+                                          <br>
+                                          <p>Lembar Persetujuan Seminar Hasil</p>                                         
+                                    </div>
+                                    <div class="col">
+                                          <button type="button" class="btn btn-primary waves-effect waves-light" style="margin-top: 1rem; float: right;">Download</button>
+                                    </div>
+                              </div>
+                              <hr>
+                              <div id="card-format-berita-acara" class="row">
+                                    <div class="col">
+                                          <br>
+                                          <p>Format Berita Acara Revisi Seminar</p>                                         
+                                    </div>
+                                    <div class="col">
+                                          <button type="button" class="btn btn-primary waves-effect waves-light" style="margin-top: 1rem; float: right;">Download</button>
+                                    </div>
+                              </div>
                         </div>
                   @endif                            
             </div>
