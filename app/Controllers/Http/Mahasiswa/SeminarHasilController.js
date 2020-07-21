@@ -6,7 +6,6 @@ class SeminarHasilController {
       async index({ auth, view }){
             const user  = auth.user
             const isAvailable = await this.checkForm({ auth })
-            console.log(isAvailable)
             const data = {
                   'user' : user.toJSON(),
                   'isAvailable' : isAvailable
@@ -18,10 +17,17 @@ class SeminarHasilController {
             const seminar_hasil = new Seminar()
             const id_user = auth.user._id
             const isFilled = await seminar_hasil.getSeminarHasil({id_user})
-            if(isFilled){
-                  return false
+       
+            if(isFilled[0]){
+                  if(isFilled[0].status == 0){
+                        return 0 //sudah diisi dan belum diacc (waiting)
+                  }else if(isFilled[0].status == 2){
+                        return 2 //sudah diisi dan diterima
+                  }else if(isFilled[0].status == 3){
+                        return 3 //sudah diisi dan ditolak
+                  }
             }else{
-                  return true
+                  return 1 //belum diisi
             }
       }
 
@@ -41,7 +47,8 @@ class SeminarHasilController {
                 'penguji_1': penguji_1,
                 'penguji_2': penguji_2,
                 'penguji_3': penguji_3,
-                'kategori' : 2
+                'kategori' : 2,
+                'status' : 0 //Status 0 : Belum disetujui
             })
 
             return response.route('mahasiswa.seminar-hasil')
