@@ -32,8 +32,8 @@ Route.group(() => {
 // Route Mahasiswa
 Route.group(() => {
   Route.get('/dashboard', 'Mahasiswa/DashboardController.index').as('mahasiswa.dashboard')
-  Route.get('/rencana-penelitian/form-rencana', 'Mahasiswa/RencanaPenelitianController.formRencanaIndex').as('mahasiswa.form-rencana')
-  Route.post('/rencana-penelitian/form-rencana', 'Mahasiswa/RencanaPenelitianController.sendFormRencana').as('mahasiswa.send-form')
+  Route.get('/rencana-penelitian', 'Mahasiswa/RencanaPenelitianController.index').as('mahasiswa.rencana-penelitian')
+  Route.post('/rencana-penelitian', 'Mahasiswa/RencanaPenelitianController.sendFormRencana').as('mahasiswa.send-form')
   Route.get('/proposal/pengajuan', 'Mahasiswa/ProposalController.pengajuanIndex').as('mahasiswa.pengajuan-proposal')
   Route.get('/proposal/seminar', 'Mahasiswa/ProposalController.seminarIndex').as('mahasiswa.pengajuan-seminar')
 }).prefix('mahasiswa').middleware(['auth:mahasiswa'])
