@@ -13,6 +13,7 @@ class DashboardController {
         const data = {
             'user': user.toJSON()
         }
+        
         if (user.penelitian) {
             const penelitian = await db.collection("penelitians")
                 .findOne({ _id: user.penelitian })

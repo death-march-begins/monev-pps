@@ -1,0 +1,123 @@
+@layout('mahasiswa.layouts.base')
+
+@section('content')
+
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="page-title-box">
+          <div class="row align-items-center">
+            <div class="col-sm-6">
+              <h4 class="page-title">Rencana Penelitian</h4>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-right">
+                <li class="breadcrumb-item"><a href="javascript:void(0);">Monev-in</a></li>
+                <li class="breadcrumb-item active">Rincian Penelitian</li>
+              </ol>
+            </div>
+          </div>
+  
+        </div>
+  
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="card m-b-30">
+              <div class="card-header bg-white row" style="margin:0">
+
+                <div class="col-sm-9">
+                <h4 class="header-title">Rincian Rencana Penelitian</h4>
+                </div>
+
+                <div class="col-sm-3 mt-2">
+                  <span class="float-right font-italic">Menunggu Persetujuan ...</span>
+                </div>
+
+              </div>
+              <div class="card-body">
+     
+                
+                <div class="table-responsive">
+                    <table class="table table-striped mb-0">
+
+                        <tbody>
+                            <tr>
+                                <td style="width:20%; font-weight:500">Judul Penelitian</td>
+                                <td>{{ penelitian.judul }}</td>
+                            </tr>
+                            <tr>
+                                <td style="width:20%; font-weight:500">Bidang Ilmu</td>
+                                <td>{{ penelitian.minat }}</td>
+                            </tr>
+                            <tr>
+                                <td style="width:20%; font-weight:500">Promotor</td>
+                                <td>{{ penelitian.promotor }}</td>
+                            </tr>
+                            <tr>
+                                <td style="width:20%; font-weight:500">Ko-Promotor 1</td>
+                                <td>{{ penelitian.ko_promotor1 }}</td>
+                            </tr>
+                            <tr>
+                                <td style="width:20%; font-weight:500">Ko-Promotor 2</td>
+                                <td>{{ penelitian.ko_promotor2 }}</td>
+                            </tr>
+                            <tr>
+                                <td style="width:20%; font-weight:500">Rencana Jadwal Penelitian</td>
+                                <td>{{ penelitian.waktu_mulai }} / {{ penelitian.waktu_berakhir }}</td>
+                            </tr>
+                            <tr>
+                                <td style="width:20%; font-weight:500">Tempat Penelitian</td>
+                                <td>{{ penelitian.tempat }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div class="card m-b-30">
+                <div class="card-header bg-white">
+                <h4 class="header-title">Abstrak</h4>
+                </div>
+                <div class="card-body">
+                <p>{{ penelitian.abstrak }}</p>
+                </div>
+            </div>
+
+            <div class="card m-b-30">
+                <div class="card-header bg-white">
+                    <h4 class="header-title">Kontribusi Mendasar</h4>
+                </div>
+                <div class="card-body">
+                <p>{{ penelitian.kontribusi }}</p>
+                </div>
+            </div>
+
+            <div class="card m-b-30">
+                <div class="card-header bg-white">
+                    <h4 class="header-title">Temuan yang di Targetkan (TKT)</h4>
+                </div>
+                <div class="card-body">
+                <p>{{ penelitian.tkt }}</p>
+                </div>
+            </div>
+
+            <div class="card m-b-30">
+                <div class="card-header bg-white">
+                    <h4 class="header-title">Jurnal Ilmah Bereputasi (JIB)</h4>
+                </div>
+                <div class="card-body">
+                <p>{{ penelitian.jib }}</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+@endsection

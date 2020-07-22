@@ -66,9 +66,55 @@
                 </div>
 
                 <div class="form-group col-md-12">
-                  <label class="form-label" for="ko-promotor2">Deskripsi Penelitian</label>
+                  <label class="form-label">Rencana Jadwal Penelitian</label>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <label class="" for="ko-promotor2">Mulai</label>
+                    <input class="form-control" type="month" value="2011-08" id="example-month-input" name="waktu_mulai">
+                    </div>
+                    <div class="col-md-3">
+                      <label class="" for="ko-promotor2">Berakhir</label>
+                    <input class="form-control" type="month" value="2011-08" id="example-month-input" name="waktu_berakhir">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label class="form-label" for="biaya">Sumber Biaya Penelitian</label>
+                        <input class="form-control" type="text" id="biaya" name="biaya" placeholder="Sumber Biaya" required>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="form-group col-md-12">
+                  <label class="form-label" for="tempat">Tempat Penelitian</label>
+                    <input class="form-control" type="text" id="tempat" name="tempat" placeholder="Tempat Penelitian" required>
+                </div>
+
+
+                <div class="form-group col-md-12">
+                  <label class="form-label" for="ko-promotor2">Abstrak Penelitian</label>
                   <div>
-                    <textarea required class="form-control" rows="5"></textarea>
+                    <textarea required class="form-control" rows="5" name="abstrak"></textarea>
+                  </div>
+                </div>
+
+                <div class="form-group col-md-12">
+                  <label class="form-label" for="ko-promotor2">Kontribusi Mendasar</label>
+                  <div>
+                    <textarea required class="form-control" rows="5" name="kontribusi"></textarea>
+                  </div>
+                </div>
+
+                <div class="form-group col-md-12">
+                  <label class="form-label" for="ko-promotor2">Temuan yang di Targetkan (TKT)</label>
+                  <div>
+                    <textarea required class="form-control" rows="5" name="tkt"></textarea>
+                  </div>
+                </div>
+
+                <div class="form-group col-md-12">
+                  <label class="form-label" for="ko-promotor2">Jurnal Ilmah Bereputasi (JIB)</label>
+                  <div>
+                    <textarea required class="form-control" rows="5" name="jib"></textarea>
                   </div>
                 </div>
 
@@ -106,6 +152,8 @@
 @endsection
 
 @section('extra_head')
+
+
 
   <style>
     .form-label {
